@@ -29,10 +29,6 @@ fun VGView() {
                     modifier = Modifier.size(20.dp))
             }
             items(VGV.getProducts()) { prod -> ProductView(prod, selected = {}) }
-        }
-    }
-
-
-    }
+        } } }
 
 

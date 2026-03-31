@@ -12,3 +12,10 @@ data class Catmodels(
     val product: String,
     val image:Int
 )
+data class Toymodel(
+    val product: String,
+    val image:Int,
+    val price: String,
+    val promo: Boolean,
+    val shipping: Boolean,
+)
