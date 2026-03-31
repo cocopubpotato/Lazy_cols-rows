@@ -61,10 +61,10 @@ class pviewmodel {
             )
         )
         return prodlist
-    }
+    }/*
     fun getToylist():List<Pmodels>{
         val Toylist =mutableListOf<Pmodels>()
-        Toylist.add(Pmodels(product = "Transformers Studio Series 86: Hot Rod", image = R.drawable.T_HR, price = "39.9", promo = true, shipping = true))
+        Toylist.add(Pmodels(product = "Transformers Studio Series 86: Hot Rod", image = R.drawable.t_HR, price = "39.9", promo = true, shipping = true))
         Toylist.add(Pmodels(product = "Transformers Legacy Armada Starscream", image = R.drawable.T_armada, price = "19.9", promo = true, shipping = false))
         Toylist.add(Pmodels(product = "Transformers Studio Series 86: Sound Wave", image = R.drawable.T_SW, price = "39.9", promo = false, shipping = true))
         Toylist.add(Pmodels(product = "Transformers Devastation Optimus Prime", image = R.drawable.T_OP, price = "19.9", promo = true, shipping = true))
@@ -73,7 +73,7 @@ class pviewmodel {
 
         return Toylist
     }
-
+*/
 }
 class Catmodel {
     fun getCatlist():List<Catmodels>{
@@ -90,12 +90,12 @@ class Catmodel {
 class Toymodels {
     fun getToylist():List<Toymodel>{
         val Toylist =mutableListOf<Toymodel>()
-        Toylist.add(Toymodel(product = "Transformers Studio Series 86: Hot Rod", image = R.drawable.T_HR, price = "39.9", promo = true, shipping = true))
-        Toylist.add(Toymodel(product = "Transformers Legacy Armada Starscream", image = R.drawable.T_armada, price = "19.9", promo = true, shipping = false))
-        Toylist.add(Toymodel(product = "Transformers Studio Series 86: Sound Wave", image = R.drawable.T_SW, price = "39.9", promo = false, shipping = true))
-        Toylist.add(Toymodel(product = "Transformers Devastation Optimus Prime", image = R.drawable.T_OP, price = "19.9", promo = true, shipping = true))
-        Toylist.add(Toymodel(product = "Studio Series 86: Hot Rod", image = R.drawable.T_HR, price = "39.9", promo = true, shipping = true))
-        Toylist.add(Toymodel(product = "Transformers Legacy Armada Megatron", image = R.drawable.T_ArmadaM, price = "29.9", promo = true, shipping = true))
+        Toylist.add(Toymodel(product = "Transformers Studio Series 86: Hot Rod", image = R.drawable.t_hr, price = "39.9", promo = true, shipping = true))
+        Toylist.add(Toymodel(product = "Transformers Legacy Armada Starscream", image = R.drawable.t_armada, price = "19.9", promo = true, shipping = false))
+        Toylist.add(Toymodel(product = "Transformers Studio Series 86: Sound Wave", image = R.drawable.t_sw, price = "39.9", promo = false, shipping = true))
+        Toylist.add(Toymodel(product = "Transformers Devastation Optimus Prime", image = R.drawable.t_op, price = "19.9", promo = true, shipping = true))
+        Toylist.add(Toymodel(product = "Studio Series 86: Hot Rod", image = R.drawable.t_hr, price = "39.9", promo = true, shipping = true))
+        Toylist.add(Toymodel(product = "Transformers Legacy Armada Megatron", image = R.drawable.t_armadam, price = "29.9", promo = true, shipping = true))
 
         return Toylist
     }
