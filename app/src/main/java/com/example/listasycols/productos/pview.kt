@@ -2,7 +2,6 @@ package com.example.listasycols.productos
 
 import com.example.listasycols.R
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -15,10 +14,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -32,7 +27,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun ProductPreview(){
     val computadora= Pmodels(image=R.drawable.pkp, product = "Pokopia", promo = true, price = "15022", shipping = false)
-    com.example.listasycols.productos.ProductView(computadora) {
+    ProductView(computadora) {
 
     }
 }
@@ -40,22 +35,11 @@ fun ProductPreview(){
 
 @Composable
 fun ProductView(product: Pmodels,selected:()-> Unit){
-    //call product
-    var agregado by remember{ mutableStateOf(false) }
-var resultado by remember{mutableStateOf(" ")}
 
-fun addToCart(){
-    agregado = !agregado
-    if (agregado){
-        resultado = "Agregaste ${product.product} al carrito"
-    }else{
-        resultado= " "
-    }
-}
 
 Card(modifier = Modifier.fillMaxWidth().padding(10.dp), colors = CardDefaults.cardColors(containerColor = Color.White)) {
     Column(modifier = Modifier.fillMaxWidth()) {
-        Row() {
+        Row {
             Image(painter = painterResource(product.image),
                 contentDescription = "imagen de producto",
                 modifier = Modifier.size(50.dp).align(Alignment.CenterVertically)
@@ -75,8 +59,7 @@ Card(modifier = Modifier.fillMaxWidth().padding(10.dp), colors = CardDefaults.ca
                 }else{Text("")}
 
                 Spacer(modifier = Modifier.size(8.dp))
-                Button(onClick = {addToCart()
-                    selected()}, colors = ButtonDefaults.buttonColors(
+                Button(onClick = {selected()}, colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Yellow,
                     contentColor = Color.Black)) {Text("Agregar al carrito")
                 }
