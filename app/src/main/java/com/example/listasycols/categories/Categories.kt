@@ -26,42 +26,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 
-/*
-@Composable
-fun CategoryView(
-    navegante: NavHostController,product: Catmodels, selected:()-> Unit
-){
-    Card(modifier = Modifier.height(100.dp).fillMaxWidth().padding(10.dp)
-        .clickable{navegante.navigate(route="c")}
-
-        ,colors = CardDefaults.cardColors(containerColor = Color.White)) {
-        Column(modifier = Modifier.fillMaxWidth()) {
-            Row {
-                Image(painter = painterResource(product.image),
-                    contentDescription = "imagen de categoria",
-                    modifier = Modifier.size(80.dp).align(Alignment.CenterVertically)
-                )
-                Column(modifier = Modifier.padding(5.dp)) {
-                    Spacer(modifier = Modifier.size(10.dp))
-                    Text(product.product, fontSize = 20.sp)
-                    Spacer(modifier = Modifier.size(10.dp))
-                }
-            }
-        }
-    }
-}*/
-
 
 //@Preview(showBackground = true)
 @Composable
-fun CatView(navegante: NavHostController, prod: CatL, seleccionada: MutableState<Int>) {
+fun CatView(navegante: NavHostController, prod: List<Catmodels>, seleccionada: MutableState<Int>) {
     val catV = CatViewmod()
     Column(modifier= Modifier.fillMaxSize()) {
         Text("" )
         Text("Shopping Categories", fontSize = 40.sp)
         LazyRow (horizontalArrangement = Arrangement.SpaceEvenly ){
-            items(catV.getCatlist())
-            { cat ->
+            items(prod) { cat ->
                 Card(modifier = Modifier.height(100.dp).fillMaxWidth().padding(10.dp)
                     .clickable{
                         seleccionada.value= cat.num
@@ -70,13 +44,13 @@ fun CatView(navegante: NavHostController, prod: CatL, seleccionada: MutableState
                     ,colors = CardDefaults.cardColors(containerColor = Color.White)) {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         Row {
-                            Image(painter = painterResource(prod.image),
-                                contentDescription = "imagen de categoria",
+                            Image(painter = painterResource(cat.image),
+                                contentDescription = "imagen de categoria${cat.num}",
                                 modifier = Modifier.size(80.dp).align(Alignment.CenterVertically)
                             )
                             Column(modifier = Modifier.padding(5.dp)) {
                                 Spacer(modifier = Modifier.size(10.dp))
-                                Text(prod.product, fontSize = 20.sp)
+                                Text(cat.product, fontSize = 20.sp)
                                 Spacer(modifier = Modifier.size(10.dp))
                             }
                         }
