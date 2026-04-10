@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
@@ -24,31 +25,31 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-
-//@Preview(showBackground = true)
-
-
 
 
 @Composable
 fun ProdView(navegante: NavHostController,seleccionada: MutableState<Int>) {
     val selected= pviewmodel().selected(seleccionada.value)
 
-    Column(modifier= Modifier.fillMaxSize().padding(4.dp).padding(top = 10.dp)) {
-        Row() {
-            Button(onClick = {navegante.navigate("Home")}){
-                Text("Regresar")
-            }
-            Text("${seleccionada.value}")
-        }
+
+    Column(modifier= Modifier.fillMaxSize().padding(4.dp).padding(top = 10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
+        ) {
+            Text("Disfruta de Nuestra Seleccion", textAlign = TextAlign.Center)
+            Button(onClick = {navegante.navigate("Home")}, Modifier.width(120.dp)){
+                Text("Regresar") }
+        Spacer(modifier = Modifier.size(10.dp))
 
 
         LazyVerticalGrid(columns = GridCells.Fixed(2),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalArrangement = Arrangement.SpaceEvenly) {
+
             items( selected){prod->
                 Card(modifier = Modifier.fillMaxWidth().padding(10.dp), colors = CardDefaults.cardColors(containerColor = Color.White)) {
                     Column(modifier = Modifier.fillMaxWidth()) {
@@ -58,7 +59,7 @@ fun ProdView(navegante: NavHostController,seleccionada: MutableState<Int>) {
                                 modifier = Modifier.size(50.dp).align(Alignment.CenterVertically)
                             )
                             Column(modifier = Modifier.padding(5.dp)) {
-                                Spacer(modifier = Modifier.size(10.dp))
+                                //Spacer(modifier = Modifier.size(10.dp))
                                 Text(prod.product, fontSize = 20.sp)
 
                                 Text(text="$ ${prod.price}", fontSize = 14.sp, fontWeight = FontWeight.Bold)

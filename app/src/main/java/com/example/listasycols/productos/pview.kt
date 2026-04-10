@@ -32,7 +32,6 @@ fun ProductPreview(){
     }
 }
 
-
 @Composable
 fun ProductView(product: Pmodels,selected:()-> Unit){
 
@@ -45,23 +44,23 @@ Card(modifier = Modifier.fillMaxWidth().padding(10.dp), colors = CardDefaults.ca
                 modifier = Modifier.size(50.dp).align(Alignment.CenterVertically)
             )
             Column(modifier = Modifier.padding(5.dp)) {
-                Spacer(modifier = Modifier.size(10.dp))
-                Text(product.product, fontSize = 20.sp)
+                Spacer(modifier = Modifier.size(8.dp))
+                Text(product.product, fontSize = 18.sp)
 
-                Text(text="$ ${product.price}", fontSize = 14.sp, fontWeight = FontWeight.Bold)
-                if (product.shipping == true){
+                Text(text="$ ${product.price}", fontSize = 13.sp, fontWeight = FontWeight.Bold)
+                if (product.shipping){
                     Text("Envio disponible")
                 }else{
                     Text("No se encuentra disponible")
                 }
-                if (product.promo ==true){
+                if (product.promo){
                 Text(text="Promociones y descuentos disponibles en checkout ", fontSize = 12.sp)
                 }else{Text("")}
 
                 Spacer(modifier = Modifier.size(8.dp))
                 Button(onClick = {selected()}, colors = ButtonDefaults.buttonColors(
                     containerColor = Color.Yellow,
-                    contentColor = Color.Black)) {Text("Agregar al carrito")
+                    contentColor = Color.Black)) {Text("Agregar al carrito",fontSize = 10.sp)
                 }
                 Spacer(modifier = Modifier.size(10.dp))
 

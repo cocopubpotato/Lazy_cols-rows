@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -30,18 +31,18 @@ import androidx.navigation.NavHostController
 //@Preview(showBackground = true)
 @Composable
 fun CatView(navegante: NavHostController, prod: List<Catmodels>, seleccionada: MutableState<Int>) {
-    val catV = CatViewmod()
-    Column(modifier= Modifier.fillMaxSize()) {
-        Text("" )
-        Text("Shopping Categories", fontSize = 40.sp)
+    Column(modifier= Modifier.fillMaxSize().padding(10.dp),
+        horizontalAlignment = Alignment.CenterHorizontally){
+        Text("\nBienvenidos a\n\nNamazon", fontSize = 38.sp , textAlign = TextAlign.Center)
+        Spacer(Modifier.height(45.dp))
+        Text("Shopping Categories", fontSize = 25.sp, textAlign = TextAlign.Center)
         LazyRow (horizontalArrangement = Arrangement.SpaceEvenly ){
             items(prod) { cat ->
                 Card(modifier = Modifier.height(100.dp).fillMaxWidth().padding(10.dp)
                     .clickable{
                         seleccionada.value= cat.num
-                        navegante.navigate(route="Products")}
-
-                    ,colors = CardDefaults.cardColors(containerColor = Color.White)) {
+                        navegante.navigate(route="Products")},
+                    colors = CardDefaults.cardColors(containerColor = Color.White)) {
                     Column(modifier = Modifier.fillMaxWidth()) {
                         Row {
                             Image(painter = painterResource(cat.image),
@@ -56,7 +57,12 @@ fun CatView(navegante: NavHostController, prod: List<Catmodels>, seleccionada: M
                         }
                     }
                 }
+
             }
         }
+        Spacer(Modifier.height(145.dp))
+        Text("donde nunca tenemos productos pero min no destruimos el ambiente",
+            fontSize = 7.sp, textAlign = TextAlign.Center)
+        Text("En apocalipsis zombies, siempre entregamos", fontSize = 7.sp, textAlign = TextAlign.Center)
     }
 }
